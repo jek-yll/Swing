@@ -1,5 +1,7 @@
 package org.example;
 
+import org.example.components.Calculate;
+
 import javax.swing.*;
 
 public class Main {
@@ -11,6 +13,8 @@ public class Main {
         jFrame.setLocationRelativeTo(null);
 
         jFrame.setVisible(true);
+
+        new Calculate();
 
     }
 }
