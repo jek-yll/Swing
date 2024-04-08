@@ -5,7 +5,6 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class Calculate extends JFrame implements ActionListener {
-    // Déclaration des composants
     private JTextField textField;
     private JButton[] numberButtons;
     private JButton[] functionButtons;
@@ -16,22 +15,20 @@ public class Calculate extends JFrame implements ActionListener {
     private double num1 = 0, num2 = 0, result = 0;
     private char operator;
 
-    // Constructeur
     public Calculate() {
-        // Création de la fenêtre
         setTitle("Calculatrice");
-        setSize(300, 400);
+        setSize(500, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
 
-        // Création du champ de texte
+
         textField = new JTextField();
         textField.setPreferredSize(new Dimension(300, 50));
         textField.setFont(new Font("Arial", Font.PLAIN, 24));
         textField.setHorizontalAlignment(JTextField.RIGHT);
         textField.setEditable(false);
 
-        // Initialisation des boutons numériques
+
         numberButtons = new JButton[10];
         for (int i = 0; i < 10; i++) {
             numberButtons[i] = new JButton(String.valueOf(i));
@@ -39,7 +36,6 @@ public class Calculate extends JFrame implements ActionListener {
             numberButtons[i].addActionListener(this);
         }
 
-        // Initialisation des boutons de fonction
         addButton = new JButton("+");
         subButton = new JButton("-");
         mulButton = new JButton("*");
@@ -53,7 +49,7 @@ public class Calculate extends JFrame implements ActionListener {
             button.addActionListener(this);
         }
 
-        // Création du panneau et ajout des composants
+
         panel = new JPanel();
         panel.setLayout(new GridLayout(4, 4, 10, 10));
         panel.add(textField);
@@ -75,12 +71,10 @@ public class Calculate extends JFrame implements ActionListener {
         panel.add(dotButton);
         panel.add(equButton);
 
-        // Ajout du panneau à la fenêtre
         add(panel);
         setVisible(true);
     }
 
-    // Méthode pour gérer les événements des boutons
     public void actionPerformed(ActionEvent e) {
         for (int i = 0; i < 10; i++) {
             if (e.getSource() == numberButtons[i]) {
