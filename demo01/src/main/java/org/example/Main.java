@@ -1,6 +1,5 @@
 package org.example;
 
-import org.example.layout.*;
 
 import javax.swing.*;
 
@@ -16,7 +15,9 @@ public class Main {
         //jFrame.add(new FlowLayoutDemo().getJPanel());
         //jFrame.add(new GridLayoutDemo().getJPanel());
         //jFrame.add(new GridBagLayoutDemo().getJPanel());
-        jFrame.add(new BoxLayoutDemo().getPanel());
+        //jFrame.add(new BoxLayoutDemo().getPanel());
+        //jFrame.add(new Table().getScrollPane());
+
         jFrame.setVisible(true);
     }
 
