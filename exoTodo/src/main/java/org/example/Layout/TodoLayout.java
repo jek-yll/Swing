@@ -33,7 +33,6 @@ public class TodoLayout extends JFrame {
             }
         });
 
-
         addBtn = new JButton("add");
         addBtn.setIcon(resizeIcon("src/img/add-6884593_640.png", 32, 32));
         addBtn.addActionListener( e -> {
@@ -60,7 +59,7 @@ public class TodoLayout extends JFrame {
         });
 
         buttonPanel = new JPanel();
-        buttonPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 15, 10));
+        buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 15, 10));
         buttonPanel.add(addBtn);
         buttonPanel.add(deleteBtn);
         buttonPanel.add(completeBtn);
