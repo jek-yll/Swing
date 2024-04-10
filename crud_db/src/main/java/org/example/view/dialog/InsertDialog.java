@@ -12,6 +12,7 @@ public class InsertDialog extends JDialog {
     private JPanel jPanel;
     private JLabel labelName, labelNum;
     private JTextField inputName, inputNum;
+    private JButton jButton;
 
     public InsertDialog(){
 
@@ -22,7 +23,7 @@ public class InsertDialog extends JDialog {
         labelNum = new JLabel("Num :");
         inputName = new JTextField(20);
         inputNum = new JTextField(20);
-        JButton jButton = new JButton("OK");
+        jButton = new JButton("OK");
 
         jPanel.add(labelName);
         jPanel.add(inputName);
@@ -30,22 +31,27 @@ public class InsertDialog extends JDialog {
         jPanel.add(inputNum);
         jPanel.add(jButton);
 
-        this.setSize(150,150);
+        this.setSize(300,150);
 
         this.add(jPanel);
         jButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Contact contact = new Contact();
+                contact.setName(inputName.getText());
+                contact.setNumber(inputNum.getText());
                 ContactDao contactDao = new ContactDao();
                 int count = contactDao.addContact(contact);
 
                 if(count > 0){
                     JOptionPane.showConfirmDialog(null, "Operation succeed");
+
+                    inputName.setText("");
+                    inputNum.setText("");
                 } else {
                     JOptionPane.showConfirmDialog(null, "Operation Failed");
                 }
-
+                dispose();
             }
         });
 

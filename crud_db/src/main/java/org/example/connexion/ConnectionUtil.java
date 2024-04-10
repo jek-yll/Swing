@@ -12,7 +12,9 @@ public class ConnectionUtil {
             Class.forName("com.mysql.cj.jdbc.Driver");
             String database = "crudbdswing";
             String url = "jdbc:mysql://localhost:3306/";
-            return DriverManager.getConnection(url + database + "root" + "admin");
+            String username = "root";
+            String password = "admin";
+            return DriverManager.getConnection(url + database , username , password);
 
         } catch (ClassNotFoundException | SQLException e) {
             throw new RuntimeException(e);
