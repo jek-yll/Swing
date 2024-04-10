@@ -15,3 +15,13 @@ CREATE TABLE Employee (
     department_id INT ,
     FOREIGN KEY (department_id) REFERENCES Department(id)
 );
+
+INSERT INTO Department (name) VALUES
+('HR'),
+('Finance'),
+('IT');
+
+INSERT INTO Employee (firstname, lastname, department_id, role_emp) VALUES
+('John', 'Doe', 1, "RH"),
+('Alice', 'Smith', 1, "RH"),
+('Bob', 'Johnson', 1, "RH");

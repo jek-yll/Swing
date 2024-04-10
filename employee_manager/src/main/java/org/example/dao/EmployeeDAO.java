@@ -17,11 +17,11 @@ public class EmployeeDAO {
     private PreparedStatement ps;
 
     public List<Employee> getAllEmployees(){
-        List<Employee> contacts = new ArrayList<>();
+        List<Employee> employees = new ArrayList<>();
         con = ConnectionUtil.getConnection();
 
         try {
-            ps = con.prepareStatement("SELECT * FROM `contact`");
+            ps = con.prepareStatement("SELECT * FROM `employee`");
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()){
@@ -30,11 +30,11 @@ public class EmployeeDAO {
                 employee.setFirstname(rs.getString("firstname"));
                 employee.setLastname(rs.getString("lastname"));
                 employee.setRole(RoleEmp.valueOf(rs.getString("role_emp")));
-                contacts.add(employee);
+                employees.add(employee);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return contacts;
+        return employees;
     }
 }
