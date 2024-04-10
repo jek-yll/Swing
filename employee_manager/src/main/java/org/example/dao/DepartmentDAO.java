@@ -101,4 +101,26 @@ public class DepartmentDAO implements IBaseDAO<Department> {
             throw new RuntimeException(e);
         }
     }
+
+    public Department getDepartmentByName(String name){
+        con = ConnectionUtil.getConnection();
+        Department department = null;
+        try {
+            ps = con.prepareStatement("SELECT * FROM `department` WHERE `name` = ?");
+            ps.setString(1, name);
+            ResultSet rs= ps.executeQuery();
+
+            if (rs.next()){
+                department = Department.builder()
+                        .id(rs.getInt("id"))
+                        .name(rs.getString("name"))
+                        .build();
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return department;
+    }
 }

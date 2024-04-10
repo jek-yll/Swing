@@ -14,7 +14,7 @@ public class EmployeeTableModel extends AbstractTableModel {
 
     public EmployeeTableModel(){
         EmployeeDAO employeeDAO = new EmployeeDAO();
-        Employee[] employees = employeeDAO.getAllEmployees().toArray(new Employee[0]);
+        Employee[] employees = employeeDAO.getAll().toArray(new Employee[0]);
         columns = new String[]{"ID", "FIRSTNAME", "LASTNAME", "ROLE"};
         rows = new Object[employees.length][columns.length];
         for (int i = 0; i < employees.length; i++) {
