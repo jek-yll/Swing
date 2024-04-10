@@ -1,9 +1,17 @@
-create database if not exists cruddbswing;
+create database if not exists employee_manager_bdd;
 
-use crudbdswing;
+use employee_manager_bdd;
 
-CREATE TABLE contact (
+CREATE TABLE Department (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(255) NOT NULL,
-    number VARCHAR(20) NOT NULL
+    name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Employee (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    firstname VARCHAR(255) NOT NULL,
+    lastname VARCHAR(255) NOT NULL,
+    role_emp VARCHAR(50) NOT NULL,
+    department_id INT ,
+    FOREIGN KEY (department_id) REFERENCES Department(id)
 );
