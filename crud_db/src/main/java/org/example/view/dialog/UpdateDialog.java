@@ -62,10 +62,8 @@ public class UpdateDialog extends JDialog {
         searchBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Contact contact =  new Contact();
                 ContactDao contactDao = new ContactDao();
-
-                contact = contactDao.getContactById(Integer.parseInt(inputId.getText()));
+                Contact contact = contactDao.getContactById(Integer.parseInt(inputId.getText()));
 
                 inputName.setText(contact.getName());
                 inputNum.setText(contact.getNumber());
