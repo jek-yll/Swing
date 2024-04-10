@@ -10,12 +10,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DepartmentDAO {
+public class DepartmentDAO implements IBaseDAO<Department> {
 
     Connection con;
     private PreparedStatement ps;
 
-    public int addDepartment(Department department)  {
+    @Override
+    public int add(Department department)  {
         con = ConnectionUtil.getConnection();
 
         try {
@@ -28,8 +29,8 @@ public class DepartmentDAO {
             throw new RuntimeException(e);
         }
     }
-
-    public int deleteDepartment(int id) {
+    @Override
+    public int delete(int id) {
         con = ConnectionUtil.getConnection();
 
         try {
@@ -43,8 +44,8 @@ public class DepartmentDAO {
         }
 
     }
-
-    public int updateDepartment (Department departmentUpdated){
+    @Override
+    public int update (Department departmentUpdated){
         con = ConnectionUtil.getConnection();
 
         try {
@@ -58,8 +59,8 @@ public class DepartmentDAO {
             throw new RuntimeException(e);
         }
     }
-
-    public List<Department> getDepartments (){
+    @Override
+    public List<Department> getAll (){
         List<Department> departments = new ArrayList<>();
         con = ConnectionUtil.getConnection();
 
@@ -78,8 +79,8 @@ public class DepartmentDAO {
         }
         return departments;
     }
-
-    public Department getDepartmentById(int id){
+    @Override
+    public Department getById(int id){
         con = ConnectionUtil.getConnection();
 
         try {
@@ -100,5 +101,4 @@ public class DepartmentDAO {
             throw new RuntimeException(e);
         }
     }
-
 }

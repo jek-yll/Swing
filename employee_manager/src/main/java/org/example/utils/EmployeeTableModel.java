@@ -8,52 +8,42 @@ import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
-public class EmployeeTableModel implements TableModel {
+public class EmployeeTableModel extends AbstractTableModel {
     private String[] columns;
     private Object[][] rows;
 
     public EmployeeTableModel(){
-        DefaultTableModel model = new DefaultTableModel();
-        columns = new String[]{"ID", "FIRSTNAME", "LASTNAME", "ROLE", "DEPARTMENT"};
-        rows = getData();
-        model.addRow(rows);
-        model.addColumn(columns);
-    }
-
-    private Object[][] getData(){
         EmployeeDAO employeeDAO = new EmployeeDAO();
         Employee[] employees = employeeDAO.getAllEmployees().toArray(new Employee[0]);
-        Object[][] data = new Object[employees.length][4];
-
+        columns = new String[]{"ID", "FIRSTNAME", "LASTNAME", "ROLE"};
+        rows = new Object[employees.length][columns.length];
         for (int i = 0; i < employees.length; i++) {
-            data[i][0] = employees[i].getId();
-            data[i][1] = employees[i].getFirstname();
-            data[i][2] = employees[i].getLastname();
-            data[i][3] = employees[i].getRole();
-            //data[i][4] = employees[i].getDepartment().getName();
+            rows[i][0] = employees[i].getId();
+            rows[i][1] = employees[i].getFirstname();
+            rows[i][2] = employees[i].getLastname();
+            rows[i][3] = employees[i].getRole();
+            //rows[i][4] = employees[i].getDepartment().getName();
 
         }
-        return data;
     }
-
     @Override
     public int getRowCount() {
-        return 0;
+        return rows.length;
     }
 
     @Override
     public int getColumnCount() {
-        return 0;
+        return columns.length;
     }
 
     @Override
     public String getColumnName(int columnIndex) {
-        return null;
+        return columns[columnIndex];
     }
 
     @Override
     public Class<?> getColumnClass(int columnIndex) {
-        return null;
+        return getValueAt(0, columnIndex).getClass();
     }
 
     @Override
@@ -63,7 +53,7 @@ public class EmployeeTableModel implements TableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        return null;
+        return rows[rowIndex][columnIndex];
     }
 
     @Override
