@@ -10,7 +10,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class MaineFrame extends JFrame {
+public class MainFrame extends JFrame {
 
     private JPanel panel;
 
@@ -19,7 +19,7 @@ public class MaineFrame extends JFrame {
             @Override
             public void run() {
                 try {
-                    MaineFrame maineFrame = new MaineFrame();
+                    MainFrame maineFrame = new MainFrame();
                     maineFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                     maineFrame.setSize(420, 230);
                     maineFrame.setTitle("Main Frame");
@@ -33,7 +33,7 @@ public class MaineFrame extends JFrame {
         });
     }
 
-    public MaineFrame(){
+    public MainFrame(){
         panel =  new JPanel();
         panel.setBorder(new EmptyBorder(5,5,5,5));
         setContentPane(panel);
