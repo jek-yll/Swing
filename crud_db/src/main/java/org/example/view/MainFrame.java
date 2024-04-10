@@ -19,12 +19,12 @@ public class MainFrame extends JFrame {
             @Override
             public void run() {
                 try {
-                    MainFrame maineFrame = new MainFrame();
-                    maineFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                    maineFrame.setSize(420, 230);
-                    maineFrame.setTitle("Main Frame");
-                    maineFrame.setLocationRelativeTo(null);
-                    maineFrame.setVisible(true);
+                    MainFrame mainFrame = new MainFrame();
+                    mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                    mainFrame.setSize(420, 230);
+                    mainFrame.setTitle("Main Frame");
+                    mainFrame.setLocationRelativeTo(null);
+                    mainFrame.setVisible(true);
 
                 } catch (Exception e){
                     e.printStackTrace();
