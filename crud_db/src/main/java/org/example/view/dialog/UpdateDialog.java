@@ -30,7 +30,7 @@ public class UpdateDialog extends JDialog {
         inputId = new JTextField();
         inputId.setBounds(80, 20, 40, 20);
         searchBtn = new JButton("Search");
-        searchBtn.setBounds(165, 20, 120, 20);
+        searchBtn.setBounds(180, 20, 110, 20);
 
         labelName = new JLabel("Name :");
         labelName.setBounds(10, 50, 50, 20);
