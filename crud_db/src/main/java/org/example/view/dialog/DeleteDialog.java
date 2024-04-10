@@ -23,7 +23,7 @@ public class DeleteDialog extends JDialog{
         okPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
 
         labelId = new JLabel("Id :");
-        inputId = new JTextField(15);
+        inputId = new JTextField(7);
         okBtn = new JButton("OK");
 
         contentPanel.add(labelId);

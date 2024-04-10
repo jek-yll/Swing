@@ -1,4 +1,4 @@
-create database if not exists crudbdswing;
+create database if not exists cruddbswing;
 
 use crudbdswing;
 

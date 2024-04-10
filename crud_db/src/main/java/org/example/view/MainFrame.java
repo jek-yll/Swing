@@ -52,7 +52,7 @@ public class MainFrame extends JFrame {
 
 
         JButton btnUpdate = new JButton("Update");
-        btnUpdate.setBounds(136, 23, 100, 25);
+        btnUpdate.setBounds(156, 23, 100, 25);
         btnUpdate.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -64,7 +64,7 @@ public class MainFrame extends JFrame {
 
 
         JButton btnDelete = new JButton("Delete");
-        btnDelete.setBounds(236, 23, 100, 25);
+        btnDelete.setBounds(276, 23, 100, 25);
         btnDelete.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -75,7 +75,7 @@ public class MainFrame extends JFrame {
         });
 
         JButton btnDisplay = new JButton("Display");
-        btnDisplay.setBounds(136, 50, 100, 25);
+        btnDisplay.setBounds(156, 73, 100, 25);
         btnDisplay.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

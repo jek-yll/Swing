@@ -85,7 +85,6 @@ public class UpdateDialog extends JDialog {
 
                 if (count>0){
                     JOptionPane.showConfirmDialog(null, "Contact " + contactUpdated.getId() + " updated");
-
                 } else {
                     System.out.println(contactUpdated);
                     JOptionPane.showConfirmDialog(null, "Error");

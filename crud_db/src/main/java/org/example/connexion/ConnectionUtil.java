@@ -10,7 +10,7 @@ public class ConnectionUtil {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            String database = "crudbdswing";
+            String database = "cruddbswing";
             String url = "jdbc:mysql://localhost:3306/";
             String username = "root";
             String password = "admin";

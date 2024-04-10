@@ -9,27 +9,38 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class InsertDialog extends JDialog {
-    private JPanel jPanel;
+    private JPanel jPanel, contentPanel, okPanel;
     private JLabel labelName, labelNum;
     private JTextField inputName, inputNum;
     private JButton jButton;
 
     public InsertDialog(){
 
+        setSize(350, 300);
         jPanel = new JPanel();
-        jPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
+        getContentPane().setLayout(new BorderLayout());
+        jPanel.setLayout(null);
+        okPanel = new JPanel();
+        okPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
 
         labelName = new JLabel("Name : ");
         labelNum = new JLabel("Num :");
-        inputName = new JTextField(20);
-        inputNum = new JTextField(20);
+        inputName = new JTextField();
+        inputNum = new JTextField();
         jButton = new JButton("OK");
+
+        labelName.setBounds(10, 20, 50, 20);
+        inputName.setBounds(80, 20, 80, 20);
+        labelNum.setBounds(10, 50, 50, 20 );
+        inputNum.setBounds(80, 50, 80, 20);
 
         jPanel.add(labelName);
         jPanel.add(inputName);
         jPanel.add(labelNum);
         jPanel.add(inputNum);
-        jPanel.add(jButton);
+        okPanel.add(jButton);
+        getContentPane().add(jPanel, BorderLayout.NORTH);
+        getContentPane().add(okPanel, BorderLayout.SOUTH);
 
         this.setSize(300,150);
 

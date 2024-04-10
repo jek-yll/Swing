@@ -5,12 +5,8 @@ import org.example.model.Contact;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.util.ArrayList;
-import java.util.List;
 
 public class DisplayDialog extends JDialog {
-
-    private JPanel contentPanel;
     private DefaultTableModel tableModel;
     private JTable dataTable;
     private ContactDao contactDao;
