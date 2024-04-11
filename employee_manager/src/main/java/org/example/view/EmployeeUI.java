@@ -56,9 +56,8 @@ public class EmployeeUI extends JFrame{
         departmentBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                setVisible(false);
-                departmentUI = new DepartmentUI();
-                departmentUI.setVisible(true);
+                dispose();
+                new DepartmentUI().setVisible(true);
             }
         });
     }

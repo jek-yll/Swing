@@ -22,6 +22,9 @@ public class DepartmentUI extends JFrame{
 
         departmentController = new DepartmentController();
 
+        setLocationRelativeTo(null);
+        setSize(500, 500);
+
         contentPanel = new JPanel();
         contentPanel.setLayout(new BorderLayout());
 
