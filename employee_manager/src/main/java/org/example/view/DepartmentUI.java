@@ -61,7 +61,6 @@ public class DepartmentUI extends JFrame{
                 dialog.setLocationRelativeTo(null);
                 dialog.setName("Add Department");
                 dialog.setVisible(true);
-
             }
         });
 
@@ -69,8 +68,6 @@ public class DepartmentUI extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
-                employeeUI.setVisible(true);
-
             }
         });
 

@@ -47,7 +47,7 @@ public class EmployeeUI extends JFrame{
         addBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                AddEmployeeDialog dialog = new AddEmployeeDialog();
+                AddEmployeeDialog dialog = new AddEmployeeDialog(EmployeeUI.this.table);
                 dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
                 dialog.setLocationRelativeTo(null);
                 dialog.setName("Add employee");

@@ -4,9 +4,15 @@ import lombok.Data;
 import org.example.controller.DepartmentController;
 import org.example.controller.EmployeeController;
 import org.example.model.Department;
+import org.example.model.Employee;
 import org.example.model.RoleEmp;
+import org.example.view.EmployeeUI;
+import org.example.utils.EmployeeTableModel;
 
 import javax.swing.*;
+import javax.swing.table.AbstractTableModel;
+import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -20,12 +26,15 @@ public class AddEmployeeDialog extends JDialog {
     private JButton addBtn, cancelBtn;
     private DepartmentController departmentController;
     private EmployeeController employeeController;
+    private JTable table;
 
-    public AddEmployeeDialog(){
+    public AddEmployeeDialog(JTable table){
 
+        this.table = table;
         departmentController = new DepartmentController();
         employeeController = new EmployeeController();
 
+        setTitle("Add Employee");
         setSize(580, 350);
         formPanel = new JPanel();
         formPanel.setLayout(null);
@@ -86,13 +95,16 @@ public class AddEmployeeDialog extends JDialog {
                 RoleEmp role = RoleEmp.valueOf(selectedRole);
                 Department department = departmentController.getDepartmentByName((String) departmentComboBox.getSelectedItem());
 
+
                 if (employeeController.addEmployee(firstname,lastname,role,department)){
                     JOptionPane.showConfirmDialog(null, "Employee added successfully !");
+
                 } else {
                     JOptionPane.showConfirmDialog(null, "Failed to add employee");
                 }
                 dispose();
             }
+
 
         });
 

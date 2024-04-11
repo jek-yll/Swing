@@ -5,6 +5,7 @@ import org.example.model.Employee;
 
 import javax.swing.event.TableModelListener;
 import javax.swing.table.AbstractTableModel;
+import javax.swing.table.DefaultTableModel;
 
 
 public class EmployeeTableModel extends AbstractTableModel {
@@ -68,5 +69,10 @@ public class EmployeeTableModel extends AbstractTableModel {
     @Override
     public void removeTableModelListener(TableModelListener l) {
 
+    }
+
+    public void setData(Object[][] data) {
+        this.rows = data;
+        fireTableDataChanged();
     }
 }

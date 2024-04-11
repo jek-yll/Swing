@@ -20,4 +20,10 @@ public class Employee {
     private RoleEmp role;
     private Department department;
 
+    public Employee(String firstname, String lastname, RoleEmp role, Department department) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.role = role;
+        this.department = department;
+    }
 }
