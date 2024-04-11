@@ -11,19 +11,19 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 @Data
-public class EmployeeUI {
+public class EmployeeUI extends JFrame{
 
     private JPanel contentPanel, btnPanel;
     private JTable table;
     private JButton addBtn, updateBtn, deleteBtn, departmentBtn;
     private TableModel employeeTableModel;
+    private DepartmentUI departmentUI;
 
     public EmployeeUI(){
 
-
         contentPanel = new JPanel();
         contentPanel.setLayout(new BorderLayout());
-        employeeTableModel =new EmployeeTableModel();
+        employeeTableModel = new EmployeeTableModel();
         table = new JTable(employeeTableModel);
         JScrollPane scrollPane = new JScrollPane(table);
         contentPanel.add(scrollPane, BorderLayout.CENTER);
@@ -50,6 +50,15 @@ public class EmployeeUI {
                 dialog.setLocationRelativeTo(null);
                 dialog.setName("Add employee");
                 dialog.setVisible(true);
+            }
+        });
+
+        departmentBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+                departmentUI = new DepartmentUI();
+                departmentUI.setVisible(true);
             }
         });
     }

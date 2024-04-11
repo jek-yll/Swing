@@ -6,17 +6,13 @@ import org.example.model.Department;
 import java.util.List;
 
 public class DepartmentController {
-    private DepartmentDAO departmentDAO;
+    private final DepartmentDAO departmentDAO;
     public DepartmentController(){
         departmentDAO = new DepartmentDAO();
     }
 
     public Boolean addDepartment(String name){
-        if (departmentDAO.add(Department.builder().name(name).build()) > 0){
-            return true;
-        } else {
-            return false;
-        }
+        return departmentDAO.add(Department.builder().name(name).build()) > 0;
     }
 
     public List<Department> getDepartments(){

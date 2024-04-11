@@ -8,7 +8,7 @@ import org.example.model.RoleEmp;
 
 public class EmployeeController {
 
-    private EmployeeDAO employeeDAO;
+    private final EmployeeDAO employeeDAO;
 
     public EmployeeController(){
         employeeDAO = new EmployeeDAO();
@@ -21,10 +21,6 @@ public class EmployeeController {
                 .role(role)
                 .department(department)
                 .build();
-        if (employeeDAO.add(employee) > 0){
-            return true;
-        } else {
-            return false;
-        }
+        return employeeDAO.add(employee) > 0;
     }
 }
