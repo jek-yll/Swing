@@ -21,6 +21,7 @@ public class EmployeeDAO implements IBaseDAO<Employee> {
     public List<Employee> getAll(){
         List<Employee> employees = new ArrayList<>();
         con = ConnectionUtil.getConnection();
+        DepartmentDAO departmentDAO = new DepartmentDAO();
 
         try {
             ps = con.prepareStatement("SELECT * FROM `employee`");
@@ -32,6 +33,7 @@ public class EmployeeDAO implements IBaseDAO<Employee> {
                 employee.setFirstname(rs.getString("firstname"));
                 employee.setLastname(rs.getString("lastname"));
                 employee.setRole(RoleEmp.valueOf(rs.getString("role_emp")));
+                employee.setDepartment(departmentDAO.getById(rs.getInt("department_id")));
                 employees.add(employee);
             }
         } catch (SQLException e) {
@@ -93,6 +95,7 @@ public class EmployeeDAO implements IBaseDAO<Employee> {
     @Override
     public Employee getById(int id) {
         con = ConnectionUtil.getConnection();
+        DepartmentDAO departmentDAO = new DepartmentDAO();
 
         try {
             ps = con.prepareStatement("SELECT * FROM `employee` WHERE `id` = ?");
@@ -106,7 +109,7 @@ public class EmployeeDAO implements IBaseDAO<Employee> {
                 employee.setLastname(rs.getString("lastname"));
                 employee.setRole(RoleEmp.valueOf(rs.getString("role_emp")));
                 employee.setDepartment(
-                        new Department()
+                        departmentDAO.getById(rs.getInt("department_id"))
                 );
                 return employee;
             } else {

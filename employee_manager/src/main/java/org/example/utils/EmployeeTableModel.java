@@ -5,8 +5,7 @@ import org.example.model.Employee;
 
 import javax.swing.event.TableModelListener;
 import javax.swing.table.AbstractTableModel;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
+
 
 public class EmployeeTableModel extends AbstractTableModel {
     private String[] columns;
@@ -15,15 +14,15 @@ public class EmployeeTableModel extends AbstractTableModel {
     public EmployeeTableModel(){
         EmployeeDAO employeeDAO = new EmployeeDAO();
         Employee[] employees = employeeDAO.getAll().toArray(new Employee[0]);
-        columns = new String[]{"ID", "FIRSTNAME", "LASTNAME", "ROLE"};
+        columns = new String[]{"ID", "FIRSTNAME", "LASTNAME", "ROLE", "DEPARTMENT"};
         rows = new Object[employees.length][columns.length];
+
         for (int i = 0; i < employees.length; i++) {
             rows[i][0] = employees[i].getId();
             rows[i][1] = employees[i].getFirstname();
             rows[i][2] = employees[i].getLastname();
             rows[i][3] = employees[i].getRole();
-            //rows[i][4] = employees[i].getDepartment().getName();
-
+            rows[i][4] = employees[i].getDepartment().getName();
         }
     }
     @Override

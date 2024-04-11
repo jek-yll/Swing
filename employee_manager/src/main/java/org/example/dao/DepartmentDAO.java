@@ -110,4 +110,23 @@ public class DepartmentDAO implements IBaseDAO<Department> {
         }
         return department;
     }
+
+    public int getCountEmployeesByDepartment(Department department){
+        con = ConnectionUtil.getConnection();
+        try {
+            ps = con.prepareStatement("SELECT COUNT(id) AS employee_count\n" +
+                    "FROM employee\n" +
+                    "WHERE department_id = ?;");
+
+            ps.setInt(1, department.getId());
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                return rs.getInt("employee_count");
+            } else {
+                return 0;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

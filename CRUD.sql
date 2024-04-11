@@ -1,3 +1,4 @@
+Drop database if exists employee_manager_bdd;
 create database if not exists employee_manager_bdd;
 
 use employee_manager_bdd;
@@ -23,5 +24,5 @@ INSERT INTO Department (name) VALUES
 
 INSERT INTO Employee (firstname, lastname, department_id, role_emp) VALUES
 ('John', 'Doe', 1, "RH"),
-('Alice', 'Smith', 1, "RH"),
-('Bob', 'Johnson', 1, "RH");
+('Alice', 'Smith', 1, "EMPLOYEE"),
+('Bob', 'Johnson', 1, "MANAGER");

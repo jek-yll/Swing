@@ -1,9 +1,7 @@
 package org.example.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.example.dao.DepartmentDAO;
 
 import java.util.List;
 
@@ -17,4 +15,14 @@ public class Department {
     private String name;
     private List<Employee> employees;
 
+    public int getCountEmployees(){
+        DepartmentDAO dao = new DepartmentDAO();
+        return dao.getCountEmployeesByDepartment(this);
+    }
+
+    @Override
+    public String toString() {
+        return  "ID : " + id + "     Name : " + name +
+                "     Employees Count : " + getCountEmployees() ;
+    }
 }

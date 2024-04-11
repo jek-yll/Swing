@@ -10,6 +10,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
+
 @Data
 public class EmployeeUI extends JFrame{
 
@@ -28,10 +30,10 @@ public class EmployeeUI extends JFrame{
         JScrollPane scrollPane = new JScrollPane(table);
         contentPanel.add(scrollPane, BorderLayout.CENTER);
 
-        addBtn = new JButton("Ajouter");
-        updateBtn = new JButton("Modifier");
-        deleteBtn = new JButton("Supprimer");
-        departmentBtn = new JButton("Departement");
+        addBtn = new JButton("Add");
+        updateBtn = new JButton("Update");
+        deleteBtn = new JButton("Delete");
+        departmentBtn = new JButton("Department");
 
         btnPanel = new JPanel();
         btnPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
@@ -57,7 +59,25 @@ public class EmployeeUI extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                new DepartmentUI().setVisible(true);
+                DepartmentUI departmentUI1 = new DepartmentUI();
+                departmentUI1.setLocationRelativeTo(null);
+                setVisible(false);
+                departmentUI1.setVisible(true);
+                departmentUI1.getContentPane();
+
+            }
+        });
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                JFrame frame = new JFrame();
+                frame.setSize(1000, 750);
+                frame.setLocationRelativeTo(null);
+                frame.setTitle("Employee Manager");
+                frame.add(new EmployeeUI().getContentPanel());
+                frame.setVisible(true);
             }
         });
     }

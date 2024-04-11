@@ -1,5 +1,6 @@
 package org.example.view.dialog;
 
+import lombok.Data;
 import org.example.controller.DepartmentController;
 import org.example.controller.EmployeeController;
 import org.example.model.Department;
@@ -9,6 +10,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+@Data
 public class AddEmployeeDialog extends JDialog {
 
     private JPanel formPanel;

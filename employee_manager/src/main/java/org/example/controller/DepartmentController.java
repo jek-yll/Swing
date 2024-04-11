@@ -22,4 +22,8 @@ public class DepartmentController {
     public Department getDepartmentByName (String name){
         return departmentDAO.getDepartmentByName(name);
     }
+
+    public Department getDepartmentById(int id){
+        return departmentDAO.getById(id);
+    }
 }

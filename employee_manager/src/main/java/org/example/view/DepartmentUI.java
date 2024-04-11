@@ -3,6 +3,7 @@ package org.example.view;
 import lombok.Data;
 import org.example.controller.DepartmentController;
 import org.example.model.Department;
+import org.example.view.dialog.AddDepartmentDialog;
 
 import javax.swing.*;
 import java.awt.*;
@@ -20,10 +21,14 @@ public class DepartmentUI extends JFrame{
 
     public DepartmentUI(){
 
+
         departmentController = new DepartmentController();
 
+        setTitle("Department Manager");
         setLocationRelativeTo(null);
-        setSize(500, 500);
+        setSize(1000, 750);
+        setVisible(true);
+
 
         contentPanel = new JPanel();
         contentPanel.setLayout(new BorderLayout());
@@ -46,13 +51,26 @@ public class DepartmentUI extends JFrame{
         btnPanel.add(employeeBtn);
 
         contentPanel.add(btnPanel, BorderLayout.SOUTH);
+        add(contentPanel);
+
+        addBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JDialog dialog = new AddDepartmentDialog();
+                dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+                dialog.setLocationRelativeTo(null);
+                dialog.setName("Add Department");
+                dialog.setVisible(true);
+
+            }
+        });
 
         employeeBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
-                employeeUI = new EmployeeUI();
                 employeeUI.setVisible(true);
+
             }
         });
 
