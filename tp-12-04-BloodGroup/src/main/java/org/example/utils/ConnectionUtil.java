@@ -14,7 +14,6 @@ public class ConnectionUtil {
             String password = "admin";
             return DriverManager.getConnection(url + database , username , password);
 
-
     }
 
 }
